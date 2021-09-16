@@ -1,2 +1,2 @@
 # simple-algorithms
-This repository contain algorithms in javascript of little challenges. Ideal for starter programers, like me at moment
+This repository contains small challenge javascript algorithms. Ideal for beginning programmers like me at the moment.
