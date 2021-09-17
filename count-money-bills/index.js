@@ -10,17 +10,30 @@
 # Exiba o valor lido e a quantidade minima de notas de cada tipo necessárias, seguindo a exemplo de saída abaixo. Após cada linha deve ser imprimido o fim de linha. 
 */
 
-const main = () => {
-  let moneyValues = [100, 50, 20, 10, 5, 2, 1];
+const countMoneyBills = () => {
+  let moneyValues = [100, 50, 20, 10, 5, 2, 1, 0.5];
 
-  for(i=0; i<=5; i++){
-    let value = prompt('Digite o valor');
+  let value = prompt("Digite o valor");
 
-    let valueContainer = document.createElement('div');
-    valueContainer.textContent = value;
-  
-    document.body.appendChild(valueContainer);
+  let remainderValue = value;
+
+  for (i = 0; i < moneyValues.length; i++) {
+    let bills = Math.floor(remainderValue / moneyValues[i]);
+    remainderValue %= moneyValues[i];
+
+    showOnPage(
+      moneyValues[i] >= 1
+        ? "> " + bills + " notas de " + moneyValues[i]
+        : "> " + bills + " moedas de " + moneyValues[i]
+    );
   }
 };
 
-main();
+const showOnPage = (value) => {
+  let valueContainer = document.createElement("div");
+  valueContainer.textContent = value;
+
+  document.body.appendChild(valueContainer);
+};
+
+countMoneyBills();
