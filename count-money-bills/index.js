@@ -20,12 +20,13 @@ const countMoneyBills = () => {
   for (i = 0; i < moneyValues.length; i++) {
     let bills = Math.floor(remainderValue / moneyValues[i]);
     remainderValue %= moneyValues[i];
-
-    showOnPage(
-      moneyValues[i] >= 1
-        ? "> " + bills + " notas de " + moneyValues[i]
-        : "> " + bills + " moedas de " + moneyValues[i]
-    );
+    if (bills > 0) {
+      showOnPage(
+        moneyValues[i] >= 1
+          ? "> " + bills + " notas de " + moneyValues[i]
+          : "> " + bills + " moedas de " + moneyValues[i]
+      );
+    }
   }
 };
 
